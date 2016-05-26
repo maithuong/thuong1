@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Hello App Engine</title>
+  </head>  
+    <script src="jquery-2.1.0.min.js"></script>
+    
+    <script>  
+        $( function() {
+            $('#btnSend').click( function() { 
+                var email = $('#txtEmail').val();
+                var password = $('#txtPassword').val();
+                var name = $('#txtName').val();
+                var phone = $('#txtPhone').val();
+                var gender = $('#gender').val();
+                $('#result').load( "/email?"+encodeURI("email="+email+"&password="+password+"&name="+name+"&phone="+phone+"&gender="+gender));
+                } );
+            } );
+    </script>
+
+  <body>
+    <h1>Constrains check form</h1>
+    <a>Email</a>
+    <input id="txtEmail" type="text">
+    <br><br>
+    <a>Пароль</a>
+    <input id="txtPassword" type="password">
+    <br><br>
+    <a>ФИО</a>
+    <input id="txtName" type="text">
+    <br><br>
+    <a>Телефон</a>
+    <input id="txtPhone" type="text">
+    <br><br>
+    <select id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <br><br>
+    <button id="btnSend">Send</button>
+    <div style="color:red" id="result"></div>
+   </body>
+    
+</html>
